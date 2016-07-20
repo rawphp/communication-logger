@@ -20,6 +20,8 @@ class ConnectionFactory
      * @param string $database
      * @param string $user
      * @param string $password
+     *
+     * @return PDO
      */
     public function create(
         string $type,
