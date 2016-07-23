@@ -6,7 +6,7 @@ It can log incoming and outgoing requests and responses.
 
 ## 1. Install
 
-    
+    composer require rawphp/communication-logger
 
 ## 2. Usage
 
