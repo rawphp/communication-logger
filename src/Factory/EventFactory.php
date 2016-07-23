@@ -20,7 +20,7 @@ class EventFactory implements IEventFactory
      *
      * @return IEvent
      */
-    public function create(string $request, string $endpoint, string $method, string $reference = ''): IEvent
+    public function create($request, $endpoint, $method, $reference = '')
     {
         $event = new Event();
 

@@ -23,14 +23,8 @@ class ConnectionFactory
      *
      * @return PDO
      */
-    public function create(
-        string $type,
-        string $host,
-        string $port,
-        string $database,
-        string $user,
-        string $password
-    ): PDO {
+    public function create($type, $host, $port, $database, $user, $password)
+    {
         return new PDO(
             sprintf(
                 '%s:host=%s;port=%s;dbname=%s',

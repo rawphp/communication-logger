@@ -2,10 +2,8 @@
 
 namespace RawPHP\CommunicationLogger\Adapter;
 
-use DateTime;
 use Exception;
 use Monolog\Logger;
-use Prophecy\Argument;
 use Ramsey\Uuid\Uuid;
 use RawPHP\CommunicationLogger\Factory\IEventFactory;
 use RawPHP\CommunicationLogger\Model\IEvent;
@@ -45,14 +43,14 @@ class FileAdapter implements IAdapter
         IWriter $writer,
         IReader $reader,
         IEventFactory $eventFactory,
-        string $dir,
+        $dir,
         Logger $log = null
     ) {
-        $this->writer       = $writer;
-        $this->reader       = $reader;
+        $this->writer = $writer;
+        $this->reader = $reader;
         $this->eventFactory = $eventFactory;
-        $this->directory    = $dir;
-        $this->logger       = $log;
+        $this->directory = $dir;
+        $this->logger = $log;
     }
 
     /**
@@ -60,7 +58,7 @@ class FileAdapter implements IAdapter
      *
      * @return IEvent
      */
-    public function save(IEvent $event) : IEvent
+    public function save(IEvent $event)
     {
         $this->latestEvent = $event;
 
@@ -103,7 +101,7 @@ class FileAdapter implements IAdapter
      *
      * @return IEvent
      */
-    public function getLastEvent(): IEvent
+    public function getLastEvent()
     {
         return $this->latestEvent;
     }
@@ -113,7 +111,7 @@ class FileAdapter implements IAdapter
      *
      * @return IEvent[]
      */
-    public function getEvents() : array
+    public function getEvents()
     {
         $events = [];
 
@@ -128,10 +126,10 @@ class FileAdapter implements IAdapter
                 $parts = explode(PHP_EOL, $contents);
                 $line1 = explode(' ', $parts[0]);
 
-                $method    = $line1[0];
-                $endpoint  = $line1[1];
+                $method = $line1[0];
+                $endpoint = $line1[1];
                 $reference = $parts[1];
-                $request   = $parts[2];
+                $request = $parts[2];
 
                 $event = $this->eventFactory->create($request, $endpoint, $method, $reference);
 

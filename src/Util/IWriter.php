@@ -17,14 +17,14 @@ interface IWriter
      *
      * @return IWriter
      */
-    public function open($file, $mode): IWriter;
+    public function open($file, $mode);
 
     /**
      * Checks whether a file has been opened.
      *
      * @return bool
      */
-    public function isOpen(): bool;
+    public function isOpen();
 
     /**
      * Write to the file.
@@ -33,7 +33,7 @@ interface IWriter
      *
      * @return IWriter
      */
-    public function write($text): IWriter;
+    public function write($text);
 
     /**
      * Close the file.

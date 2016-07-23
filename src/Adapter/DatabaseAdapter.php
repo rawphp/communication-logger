@@ -28,10 +28,10 @@ class DatabaseAdapter implements IAdapter
      * @param PDO $connection
      * @param string $table
      */
-    public function __construct(PDO $connection, string $table)
+    public function __construct(PDO $connection, $table)
     {
         $this->connection = $connection;
-        $this->table      = $table;
+        $this->table = $table;
     }
 
     /**
@@ -40,7 +40,7 @@ class DatabaseAdapter implements IAdapter
      * @return IEvent
      * @throws LogException
      */
-    public function save(IEvent $event): IEvent
+    public function save(IEvent $event)
     {
         $this->lastEvent = $event;
 
@@ -64,7 +64,7 @@ class DatabaseAdapter implements IAdapter
      *
      * @return IEvent
      */
-    public function getLastEvent(): IEvent
+    public function getLastEvent()
     {
         return $this->lastEvent;
     }
@@ -74,7 +74,7 @@ class DatabaseAdapter implements IAdapter
      *
      * @return IEvent[]
      */
-    public function getEvents() : array
+    public function getEvents()
     {
         $events = [];
 
@@ -100,7 +100,7 @@ class DatabaseAdapter implements IAdapter
      *
      * @return int
      */
-    protected function insert(IEvent $event): int
+    protected function insert(IEvent $event)
     {
         $statement = $this->connection->prepare(
             'INSERT INTO ' . $this->table . ' VALUES(:endpoint, :method, :reference, :request)'
@@ -129,7 +129,7 @@ class DatabaseAdapter implements IAdapter
      *
      * @return bool
      */
-    protected function update(IEvent $event): bool
+    protected function update(IEvent $event)
     {
         $statement = $this->connection->prepare(
             'UPDATE ' . $this->table . ' SET response = :response, SET latency = :latency WHERE id = :id'

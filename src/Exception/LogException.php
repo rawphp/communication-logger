@@ -21,7 +21,7 @@ class LogException extends Exception
      * @param string $message
      * @param IEvent $event
      */
-    public function __construct(string $message, IEvent $event)
+    public function __construct($message, $event)
     {
         parent::__construct($message, 500, null);
     }
@@ -31,7 +31,7 @@ class LogException extends Exception
      *
      * @return IEvent
      */
-    public function getEvent(): IEvent
+    public function getEvent()
     {
         return $this->event;
     }

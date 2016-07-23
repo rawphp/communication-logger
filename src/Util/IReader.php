@@ -16,7 +16,7 @@ interface IReader
      *
      * @return string[]
      */
-    public function readDir(string $dir): array;
+    public function readDir($dir);
 
     /**
      * Read a file.
@@ -25,5 +25,5 @@ interface IReader
      *
      * @return string
      */
-    public function read($file): string;
+    public function read($file);
 }

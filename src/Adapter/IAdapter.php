@@ -16,19 +16,19 @@ interface IAdapter
      *
      * @return IEvent
      */
-    public function save(IEvent $event) : IEvent;
+    public function save(IEvent $event);
 
     /**
      * Get last event.
      *
      * @return IEvent
      */
-    public function getLastEvent(): IEvent;
+    public function getLastEvent();
 
     /**
      * Get logged events.
      *
      * @return IEvent[]
      */
-    public function getEvents() : array;
+    public function getEvents();
 }

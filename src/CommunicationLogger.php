@@ -28,7 +28,7 @@ class CommunicationLogger implements ICommunicationLogger
      */
     public function __construct(IAdapter $adapter, IEventFactory $eventFactory)
     {
-        $this->adapter      = $adapter;
+        $this->adapter = $adapter;
         $this->eventFactory = $eventFactory;
     }
 
@@ -42,7 +42,7 @@ class CommunicationLogger implements ICommunicationLogger
      *
      * @return IEvent
      */
-    public function begin(string $request, string $endpoint, string $method, string $reference): IEvent
+    public function begin($request, $endpoint, $method, $reference)
     {
         $this->startTimestamp = microtime(true);
 
@@ -58,7 +58,7 @@ class CommunicationLogger implements ICommunicationLogger
      *
      * @return IEvent
      */
-    public function end(string $response): IEvent
+    public function end($response)
     {
         $endTimestamp = microtime(true);
 
@@ -75,7 +75,7 @@ class CommunicationLogger implements ICommunicationLogger
      *
      * @return IEvent
      */
-    public function getLastEvent(): IEvent
+    public function getLastEvent()
     {
         return $this->event;
     }

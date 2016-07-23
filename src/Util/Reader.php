@@ -16,7 +16,7 @@ class Reader implements IReader
      *
      * @return string[]
      */
-    public function readDir(string $dir): array
+    public function readDir($dir)
     {
         return scandir($dir);
     }
@@ -28,7 +28,7 @@ class Reader implements IReader
      *
      * @return string
      */
-    public function read($file): string
+    public function read($file)
     {
         $fp = fopen($file, 'r+');
 

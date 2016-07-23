@@ -31,7 +31,7 @@ interface IEvent
      *
      * @return IEvent
      */
-    public function setEndpoint(string $endpoint): IEvent;
+    public function setEndpoint($endpoint);
 
     /**
      * @return string
@@ -43,7 +43,7 @@ interface IEvent
      *
      * @return IEvent
      */
-    public function setMethod(string $method): IEvent;
+    public function setMethod($method);
 
     /**
      * @return string
@@ -55,7 +55,7 @@ interface IEvent
      *
      * @return IEvent
      */
-    public function setReference(string $reference): IEvent;
+    public function setReference($reference);
 
     /**
      * @return string
@@ -67,7 +67,7 @@ interface IEvent
      *
      * @return IEvent
      */
-    public function setLatency(float $latency): IEvent;
+    public function setLatency($latency);
 
     /**
      * @return string
@@ -79,7 +79,7 @@ interface IEvent
      *
      * @return IEvent
      */
-    public function setRequest(string $request): IEvent;
+    public function setRequest($request);
 
     /**
      * @return string
@@ -91,5 +91,5 @@ interface IEvent
      *
      * @return IEvent
      */
-    public function setResponse(string $response): IEvent;
+    public function setResponse($response);
 }

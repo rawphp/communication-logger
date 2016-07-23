@@ -22,7 +22,7 @@ class MemoryAdapter implements IAdapter
      *
      * @return IEvent
      */
-    public function save(IEvent $event): IEvent
+    public function save(IEvent $event)
     {
         if (null !== $event->getId()) {
             return $event;
@@ -40,7 +40,7 @@ class MemoryAdapter implements IAdapter
      *
      * @return IEvent
      */
-    public function getLastEvent(): IEvent
+    public function getLastEvent()
     {
         return $this->events[count($this->events) - 1];
     }
@@ -50,7 +50,7 @@ class MemoryAdapter implements IAdapter
      *
      * @return IEvent[]
      */
-    public function getEvents() : array
+    public function getEvents()
     {
         return $this->events;
     }

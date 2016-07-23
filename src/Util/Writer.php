@@ -20,7 +20,7 @@ class Writer implements IWriter
      *
      * @return IWriter
      */
-    public function open($file, $mode): IWriter
+    public function open($file, $mode)
     {
         $this->fileDescriptor = fopen($file, $mode);
 
@@ -33,7 +33,7 @@ class Writer implements IWriter
      *
      * @return bool
      */
-    public function isOpen(): bool
+    public function isOpen()
     {
         return (null !== $this->fileDescriptor && is_resource($this->fileDescriptor));
     }
@@ -45,7 +45,7 @@ class Writer implements IWriter
      *
      * @return IWriter
      */
-    public function write($text): IWriter
+    public function write($text)
     {
         fwrite($this->fileDescriptor, $text);
 

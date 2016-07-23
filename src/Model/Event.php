@@ -37,7 +37,7 @@ class Event implements IEvent
      *
      * @return Event
      */
-    public function setId($id): Event
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -57,7 +57,7 @@ class Event implements IEvent
      *
      * @return IEvent
      */
-    public function setEndpoint(string $endpoint): IEvent
+    public function setEndpoint($endpoint)
     {
         $this->endpoint = $endpoint;
 
@@ -77,7 +77,7 @@ class Event implements IEvent
      *
      * @return IEvent
      */
-    public function setMethod(string $method): IEvent
+    public function setMethod($method)
     {
         $this->method = $method;
 
@@ -97,7 +97,7 @@ class Event implements IEvent
      *
      * @return IEvent
      */
-    public function setReference(string $reference): IEvent
+    public function setReference($reference)
     {
         $this->reference = $reference;
 
@@ -117,7 +117,7 @@ class Event implements IEvent
      *
      * @return IEvent
      */
-    public function setLatency(float $latency): IEvent
+    public function setLatency($latency)
     {
         $this->latency = $latency;
 
@@ -137,7 +137,7 @@ class Event implements IEvent
      *
      * @return IEvent
      */
-    public function setRequest(string $request): IEvent
+    public function setRequest($request)
     {
         $this->request = $request;
 
@@ -157,7 +157,7 @@ class Event implements IEvent
      *
      * @return IEvent
      */
-    public function setResponse(string $response): IEvent
+    public function setResponse($response)
     {
         $this->response = $response;
 

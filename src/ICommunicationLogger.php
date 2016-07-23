@@ -21,7 +21,7 @@ interface ICommunicationLogger
      *
      * @return IEvent
      */
-    public function begin(string $request, string $endpoint, string $method, string $reference) : IEvent;
+    public function begin($request, $endpoint, $method, $reference);
 
     /**
      * Log the response.
@@ -30,12 +30,12 @@ interface ICommunicationLogger
      *
      * @return IEvent
      */
-    public function end(string $response) : IEvent;
+    public function end($response);
 
     /**
      * Get the latest event.
      *
      * @return IEvent
      */
-    public function getLastEvent() : IEvent;
+    public function getLastEvent();
 }
