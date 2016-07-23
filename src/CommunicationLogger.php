@@ -11,7 +11,7 @@ use RawPHP\CommunicationLogger\Model\IEvent;
  *
  * @package RawPHP\CommunicationLogger
  */
-class Logger
+class CommunicationLogger implements ICommunicationLogger
 {
     /** @var  float */
     protected $startTimestamp;

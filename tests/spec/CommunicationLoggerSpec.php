@@ -5,11 +5,11 @@ namespace spec\RawPHP\CommunicationLogger;
 use Prophecy\Argument;
 use RawPHP\CommunicationLogger\Adapter\IAdapter;
 use RawPHP\CommunicationLogger\Factory\IEventFactory;
-use RawPHP\CommunicationLogger\Logger;
+use RawPHP\CommunicationLogger\CommunicationLogger;
 use PhpSpec\ObjectBehavior;
 use RawPHP\CommunicationLogger\Model\IEvent;
 
-class LoggerSpec extends ObjectBehavior
+class CommunicationLoggerSpec extends ObjectBehavior
 {
     function let(IAdapter $adapter, IEventFactory $eventFactory)
     {
@@ -18,7 +18,7 @@ class LoggerSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(Logger::class);
+        $this->shouldHaveType(CommunicationLogger::class);
     }
 
     function it_handles_the_begining_of_a_request(IAdapter $adapter, IEventFactory $eventFactory, IEvent $event)
