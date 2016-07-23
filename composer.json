@@ -17,8 +17,7 @@
   "require-dev": {
     "phpspec/phpspec": "3.0.0-beta2",
     "sebastian/phpcpd": "^2.0",
-    "squizlabs/php_codesniffer": "^2.6",
-    "phpunit/phpunit": "^5.4"
+    "squizlabs/php_codesniffer": "^2.6"
   },
   "autoload": {
     "psr-4": {

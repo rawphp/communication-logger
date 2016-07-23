@@ -30,8 +30,7 @@ class ConnectionFactory
         string $database,
         string $user,
         string $password
-    ): PDO
-    {
+    ): PDO {
         return new PDO(
             sprintf(
                 '%s:host=%s;port=%s;dbname=%s',

@@ -85,7 +85,6 @@ class FileAdapter implements IAdapter
                 $this->writer->write($event->getLatency() . PHP_EOL);
                 $this->writer->write($event->getResponse() . PHP_EOL);
             }
-
         } catch (Exception $e) {
             if (null !== $this->logger) {
                 $this->logger->error($e);
