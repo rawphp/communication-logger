@@ -3,6 +3,7 @@
 namespace RawPHP\CommunicationLogger\Event;
 
 use Psr\Http\Message\RequestInterface;
+use RawPHP\CommunicationLogger\Model\IEvent;
 
 /**
  * Class RequestSentEvent
@@ -15,6 +16,8 @@ class RequestSentEvent
 
     /** @var  RequestInterface */
     protected $request;
+    /** @var  IEvent */
+    protected $event;
 
     /**
      * RequestSentEvent constructor.
@@ -34,5 +37,29 @@ class RequestSentEvent
     public function getRequest()
     {
         return $this->request;
+    }
+
+    /**
+     * Get event.
+     *
+     * @return IEvent
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+
+    /**
+     * Set event.
+     *
+     * @param IEvent $event
+     *
+     * @return RequestSentEvent
+     */
+    public function setEvent(IEvent $event)
+    {
+        $this->event = $event;
+
+        return $this;
     }
 }
