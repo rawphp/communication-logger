@@ -66,7 +66,7 @@ class FileAdapter implements IAdapter
             $event->setId((string)Uuid::uuid4());
         }
 
-        $filename = sprintf('%s.%s.event', $event->getEndpoint(), $event->getId());
+        $filename = sprintf('%s.%s.event', $this->prepareFilename($event->getEndpoint()), $event->getId());
 
         $file = null;
 
@@ -147,5 +147,17 @@ class FileAdapter implements IAdapter
         }
 
         return $events;
+    }
+
+    /**
+     * Prepare filename.
+     *
+     * @param string $endpoint
+     *
+     * @return string
+     */
+    protected function prepareFilename($endpoint)
+    {
+        return str_replace(['//', '/'], '-', $endpoint);
     }
 }
