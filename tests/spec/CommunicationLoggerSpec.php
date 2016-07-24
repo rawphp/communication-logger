@@ -35,13 +35,11 @@ class CommunicationLoggerSpec extends ObjectBehavior
 
     function it_handles_the_end_of_a_request(IAdapter $adapter, IEvent $event)
     {
-        $adapter->getLastEvent()->willReturn($event);
-
         $event->setResponse('response')->shouldBeCalled();
         $event->setLatency(Argument::type('double'))->shouldBeCalled();
 
         $adapter->save($event)->shouldBeCalled();
 
-        $this->end('response');
+        $this->end($event, 'response');
     }
 }

@@ -19,6 +19,8 @@ class CommunicationLogger implements ICommunicationLogger
     protected $adapter;
     /** @var  IEventFactory */
     protected $eventFactory;
+    /** @var  IEvent */
+    protected $lastEvent;
 
     /**
      * Logger constructor.
@@ -46,23 +48,22 @@ class CommunicationLogger implements ICommunicationLogger
     {
         $this->startTimestamp = microtime(true);
 
-        $event = $this->eventFactory->create($request, $endpoint, $method, $reference);
+        $this->lastEvent = $this->eventFactory->create($request, $endpoint, $method, $reference);
 
-        return $this->adapter->save($event);
+        return $this->adapter->save($this->lastEvent);
     }
 
     /**
      * Log the response.
      *
+     * @param IEvent $event
      * @param string $response
      *
      * @return IEvent
      */
-    public function end($response)
+    public function end(IEvent $event, $response)
     {
         $endTimestamp = microtime(true);
-
-        $event = $this->adapter->getLastEvent();
 
         $event->setResponse($response);
         $event->setLatency($endTimestamp - $this->startTimestamp);
@@ -77,6 +78,6 @@ class CommunicationLogger implements ICommunicationLogger
      */
     public function getLastEvent()
     {
-        return $this->event;
+        return $this->lastEvent;
     }
 }

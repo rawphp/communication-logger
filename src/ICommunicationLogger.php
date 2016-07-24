@@ -26,11 +26,12 @@ interface ICommunicationLogger
     /**
      * Log the response.
      *
+     * @param IEvent $event
      * @param string $response
      *
      * @return IEvent
      */
-    public function end($response);
+    public function end(IEvent $event, $response);
 
     /**
      * Get the latest event.
