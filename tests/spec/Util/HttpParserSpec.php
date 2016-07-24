@@ -17,14 +17,12 @@ class HttpParserSpec extends ObjectBehavior
 
     function it_returns_request_as_string(RequestInterface $request, UriInterface $uri, Stream $stream)
     {
-        $request->getMethod()->shouldBeCalled()->willReturn('POST');
         $request->getUri()->shouldBeCalled()->willReturn($uri);
         $request->getHeaders()->shouldBeCalled()->willReturn(['content-type' => 'application/json']);
         $request->getBody()->shouldBeCalled()->willReturn($stream);
 
         $stream->getContents()->shouldBeCalled()->willReturn('{"data": {}}');
 
-        $uri->__toString()->shouldBeCalled()->willReturn('http://example.com');
         $uri->getQuery()->shouldBeCalled()->willReturn('');
 
         $this->getRequestAsString($request);

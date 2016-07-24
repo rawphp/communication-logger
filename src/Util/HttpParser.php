@@ -22,13 +22,7 @@ class HttpParser
      */
     public function getRequestAsString(RequestInterface $request)
     {
-        $requestString = $request->getMethod() . ' ' .
-            (string)$request->getUri() . ' HTTP/' .
-            PHP_EOL;
-
-        return $requestString .
-        PHP_EOL .
-        $this->getFormattedQueryParameters($request) .
+        return $this->getFormattedQueryParameters($request) .
         PHP_EOL .
         $this->getBodyWithHeaders($request);
     }
