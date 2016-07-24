@@ -12,7 +12,6 @@ use Psr\Http\Message\RequestInterface;
  */
 class HttpParser
 {
-
     /**
      * Format request to string.
      *
